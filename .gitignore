@@ -1,0 +1,13 @@
+*~
+*.swp
+*.swo
+*.bk
+*.back
+*.bkup
+*.2
+*.1
+*.old
+*.backup
+*.tfvars
+.terraform/
+terraform.tfstate*
