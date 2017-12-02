@@ -4,9 +4,16 @@ terraform {
 
 variable "aws_access_key" {}
 variable "aws_secret_key" {}
+
 variable "aws_region" {
   default = "us-east-1"
 }
+
+variable "ami_id" {}
+variable "subnet_id" {}
+variable "security_group_id" {}
+variable "identity" {}
+
 variable "total_webs" {
   default = "2"
 }
@@ -26,21 +33,21 @@ provider "aws" {
 resource "aws_instance" "web" {
   ami           = "${var.ami_id}"
   instance_type = "t2.micro"
-  count = "${var.total_webs}"
+  count         = "${var.total_webs}"
 
-  subnet_id              = "${subnet_id}"
-  vpc_security_group_ids = ["${security_group_id}"]
+  subnet_id              = "${var.subnet_id}"
+  vpc_security_group_ids = ["${var.security_group_id}"]
 
   tags {
-    "Name" = "web ${count.index+1}/${var.total_webs}"
-    "Identity" = "${identity}"
+    "Name"     = "web ${count.index+1}/${var.total_webs}"
+    "Identity" = "${var.identity}"
     "Foo"      = "bar"
     "Zip"      = "zap"
   }
 }
 
 module "example" {
-  source = "./example-module"
+  source  = "./example-module"
   command = "echo Goodbye World"
 }
 
