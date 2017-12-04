@@ -15,7 +15,7 @@ variable "security_group_id" {}
 variable "identity" {}
 
 variable "total_webs" {
-  default = "2"
+  default = "1"
 }
 
 # terraform {
