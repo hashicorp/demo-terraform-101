@@ -46,10 +46,10 @@ resource "aws_instance" "web" {
   key_name = "${aws_key_pair.training.id}"
 
   tags {
-    "Name"      = "web ${count.index+1}/${var.total_webs}"
-    "Identity"  = "${var.identity}"
-    "Foo"       = "bar"
-    "Zip"       = "zap"
+    "Name"     = "web ${count.index+1}/${var.total_webs}"
+    "Identity" = "${var.identity}"
+    "Foo"      = "bar"
+    "Zip"      = "zap"
   }
 
   connection {
@@ -64,7 +64,7 @@ resource "aws_instance" "web" {
 
   provisioner "remote-exec" {
     inline = [
-      "sudo cp /tmp/assets/webapp /usr/local/bin/"
+      "sudo cp /tmp/assets/webapp /usr/local/bin/",
       "sudo chmod +x /usr/local/bin/*",
       "sudo cp /tmp/assets/webapp.service /lib/systemd/system/webapp.service",
       "sudo service webapp start",
