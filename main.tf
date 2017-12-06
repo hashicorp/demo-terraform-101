@@ -2,14 +2,14 @@ terraform {
   required_version = ">= 0.11.0"
 }
 
-variable "aws_access_key" {}
-variable "aws_secret_key" {}
+variable "access_key" {}
+variable "secret_key" {}
 
-variable "aws_region" {
+variable "region" {
   default = "us-east-1"
 }
 
-variable "ami_id" {}
+variable "ami" {}
 variable "subnet_id" {}
 variable "security_group_id" {}
 variable "identity" {}
@@ -26,25 +26,25 @@ variable "num_webs" {
 
 provider "aws" {
   version    = "~> 1.5"
-  access_key = "${var.aws_access_key}"
-  secret_key = "${var.aws_secret_key}"
-  region     = "${var.aws_region}"
+  access_key = "${var.access_key}"
+  secret_key = "${var.secret_key}"
+  region     = "${var.region}"
 }
 
-module "webserver" {
-  source = "./webserver"
+module "server" {
+  source = "./server"
 
   num_webs          = "${var.num_webs}"
-  ami_id            = "${var.ami_id}"
+  ami               = "${var.ami}"
   subnet_id         = "${var.subnet_id}"
   security_group_id = "${var.security_group_id}"
   identity          = "${var.identity}"
 }
 
 output "public_ip" {
-  value = "${module.webserver.public_ip}"
+  value = "${module.server.public_ip}"
 }
 
 output "public_dns" {
-  value = "${module.webserver.public_dns}"
+  value = "${module.server.public_dns}"
 }

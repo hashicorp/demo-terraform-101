@@ -1,4 +1,4 @@
-variable "ami_id" {}
+variable "ami" {}
 
 variable "num_webs" {
   default = 1
@@ -14,7 +14,7 @@ resource "aws_key_pair" "training" {
 }
 
 resource "aws_instance" "web" {
-  ami           = "${var.ami_id}"
+  ami           = "${var.ami}"
   instance_type = "t2.nano"
   count         = "${var.num_webs}"
 
