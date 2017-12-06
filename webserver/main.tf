@@ -1,6 +1,6 @@
 variable "ami_id" {}
 
-variable "total_webs" {
+variable "num_webs" {
   default = 1
 }
 
@@ -16,7 +16,7 @@ resource "aws_key_pair" "training" {
 resource "aws_instance" "web" {
   ami           = "${var.ami_id}"
   instance_type = "t2.nano"
-  count         = "${var.total_webs}"
+  count         = "${var.num_webs}"
 
   subnet_id              = "${var.subnet_id}"
   vpc_security_group_ids = ["${var.security_group_id}"]
@@ -24,7 +24,7 @@ resource "aws_instance" "web" {
   key_name = "${aws_key_pair.training.id}"
 
   tags {
-    "Name"     = "web ${count.index+1}/${var.total_webs}"
+    "Name"     = "web ${count.index+1}/${var.num_webs}"
     "Identity" = "${var.identity}"
     "Foo"      = "bar"
     "Zip"      = "zap"

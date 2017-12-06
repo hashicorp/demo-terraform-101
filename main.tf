@@ -14,7 +14,7 @@ variable "subnet_id" {}
 variable "security_group_id" {}
 variable "identity" {}
 
-variable "total_webs" {
+variable "num_webs" {
   default = "1"
 }
 
@@ -34,7 +34,7 @@ provider "aws" {
 module "webserver" {
   source = "./webserver"
 
-  total_webs        = 1
+  num_webs          = "${var.num_webs}"
   ami_id            = "${var.ami_id}"
   subnet_id         = "${var.subnet_id}"
   security_group_id = "${var.security_group_id}"
