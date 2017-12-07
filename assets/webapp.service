@@ -1,0 +1,8 @@
+[Unit]
+Description=Demo web app
+
+[Service]
+ExecStart=/usr/local/bin/webapp >> /var/log/webapp.log
+IgnoreSIGPIPE=false
+KillMode=process
+
