@@ -11,7 +11,7 @@ variable "region" {
 
 variable "ami" {}
 variable "subnet_id" {}
-variable "security_group_id" {}
+variable "vpc_security_group_id" {}
 variable "identity" {}
 
 variable "num_webs" {
@@ -34,11 +34,11 @@ provider "aws" {
 module "server" {
   source = "./server"
 
-  num_webs          = "${var.num_webs}"
-  ami               = "${var.ami}"
-  subnet_id         = "${var.subnet_id}"
-  security_group_id = "${var.security_group_id}"
-  identity          = "${var.identity}"
+  num_webs              = "${var.num_webs}"
+  ami                   = "${var.ami}"
+  subnet_id             = "${var.subnet_id}"
+  vpc_security_group_id = "${var.vpc_security_group_id}"
+  identity              = "${var.identity}"
 }
 
 output "public_ip" {

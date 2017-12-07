@@ -5,7 +5,7 @@ variable "num_webs" {
 }
 
 variable "subnet_id" {}
-variable "security_group_id" {}
+variable "vpc_security_group_id" {}
 variable "identity" {}
 
 resource "aws_key_pair" "training" {
@@ -19,7 +19,7 @@ resource "aws_instance" "web" {
   count         = "${var.num_webs}"
 
   subnet_id              = "${var.subnet_id}"
-  vpc_security_group_ids = ["${var.security_group_id}"]
+  vpc_security_group_ids = ["${var.vpc_security_group_id}"]
 
   key_name = "${aws_key_pair.training.id}"
 
