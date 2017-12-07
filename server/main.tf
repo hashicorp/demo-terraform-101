@@ -42,10 +42,7 @@ resource "aws_instance" "web" {
 
   provisioner "remote-exec" {
     inline = [
-      "sudo cp /tmp/assets/webapp /usr/local/bin/",
-      "sudo chmod +x /usr/local/bin/*",
-      "sudo cp /tmp/assets/webapp.service /lib/systemd/system/webapp.service",
-      "sudo service webapp start",
+      "sudo sh /tmp/setup-web.sh"
     ]
   }
 }
