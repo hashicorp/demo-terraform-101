@@ -18,12 +18,6 @@ variable "num_webs" {
   default = "1"
 }
 
-# terraform {
-#   backend "atlas" {
-#     name = "sethvargo/training"
-#   }
-# }
-
 provider "aws" {
   version    = "~> 1.5"
   access_key = "${var.access_key}"
