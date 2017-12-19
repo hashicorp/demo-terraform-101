@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+
+# Bundle web assets
+rice embed-go
+
+# Build linux version
+GOOS=linux GOARCH=amd64 go build -v .
+mkdir -p dist/linux-amd64
+mv webapp dist/linux-amd64/
+cp dist/linux-amd64/webapp ../assets/
+
+# Build for local platform
+GOOS=darwin GOARCH=amd64 go build -v .
+mkdir -p dist/darwin-amd64
+mv webapp dist/darwin-amd64/
+
