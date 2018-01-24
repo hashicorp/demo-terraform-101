@@ -2,20 +2,26 @@ terraform {
   required_version = ">= 0.11.0"
 }
 
-variable "access_key" {}
-variable "secret_key" {}
-
-variable "region" {
-  default = "us-east-1"
+variable "access_key" {
+  description = "The AWS access key used to provision resources"
 }
 
-variable "ami" {}
-variable "subnet_id" {}
-variable "vpc_security_group_id" {}
-variable "identity" {}
+variable "secret_key" {
+  description = "The AWS secret key used to provision resources"
+}
+
+variable "region" {
+  description = "The AWS region in which to provision resources"
+  default     = "us-west-2"
+}
+
+variable "identity" {
+  description = "A unique name for your resources"
+}
 
 variable "num_webs" {
-  default = "1"
+  description = "The number of servers to run"
+  default     = "1"
 }
 
 provider "aws" {
@@ -25,14 +31,28 @@ provider "aws" {
   region     = "${var.region}"
 }
 
+data "aws_ami" "ubuntu" {
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["099720109477"] # Canonical
+}
+
 module "server" {
   source = "./server"
 
-  num_webs              = "${var.num_webs}"
-  ami                   = "${var.ami}"
-  subnet_id             = "${var.subnet_id}"
-  vpc_security_group_id = "${var.vpc_security_group_id}"
-  identity              = "${var.identity}"
+  num_webs = "${var.num_webs}"
+  ami      = "${data.aws_ami.ubuntu.id}"
+  identity = "${var.identity}"
 }
 
 output "public_ip" {
