@@ -10,6 +10,10 @@ variable "secret_key" {
   description = "The AWS secret key used to provision resources"
 }
 
+variable "security_group_id" {
+  description = "The security group with ingress and egress rules that EC2 instances will be created within."
+}
+
 variable "region" {
   description = "The AWS region in which to provision resources"
   default     = "us-west-2"
@@ -17,6 +21,10 @@ variable "region" {
 
 variable "identity" {
   description = "A unique name for your resources"
+}
+
+variable "ami" {
+  description = "The Amazon Machine Image for new instances."
 }
 
 variable "num_webs" {
@@ -34,8 +42,10 @@ provider "aws" {
 module "server" {
   source = "./server"
 
-  num_webs = "${var.num_webs}"
-  identity = "${var.identity}"
+  num_webs          = "${var.num_webs}"
+  identity          = "${var.identity}"
+  security_group_id = "${var.security_group_id}"
+  ami               = "${var.ami}"
 }
 
 output "public_ip" {

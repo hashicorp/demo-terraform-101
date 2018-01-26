@@ -12,38 +12,8 @@ variable "identity" {
   description = "A unique name for this server"
 }
 
-resource "aws_security_group" "web" {
-  name = "${var.identity}-sg"
-
-  ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port   = "22"
-    to_port     = "22"
-    protocol    = "TCP"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  tags {
-    "Identity"   = "${var.identity}"
-    "Created-by" = "Terraform"
-  }
-
-  lifecycle {
-    create_before_destroy = true
-  }
+variable "security_group_id" {
+  description = "The AWS security group with ingress and egress rules for this instance."
 }
 
 resource "aws_instance" "web" {
@@ -51,7 +21,7 @@ resource "aws_instance" "web" {
   instance_type = "t2.medium"
   count         = "${var.num_webs}"
 
-  vpc_security_group_ids = ["${aws_security_group.web.id}"]
+  vpc_security_group_ids = ["${var.security_group_id}"]
 
   tags {
     "Name"       = "${var.identity} web ${count.index+1}/${var.num_webs}"
