@@ -1,6 +1,6 @@
 variable "ami" {
   description = "Base machine image for running this server"
-  default     = "ami-bd8f33c5"
+  default     = "ami-e70db29f"
 }
 
 variable "num_webs" {
@@ -12,13 +12,8 @@ variable "identity" {
   description = "A unique name for this server"
 }
 
-resource "aws_key_pair" "training" {
-  key_name   = "${var.identity}-key"
-  public_key = "${file("~/.ssh/id_rsa.pub")}"
-}
-
-resource "aws_security_group" "instance" {
-  name = "${var.identity}-terraform-example-instance"
+resource "aws_security_group" "web" {
+  name = "${var.identity}-sg"
 
   ingress {
     from_port   = 80
@@ -56,30 +51,12 @@ resource "aws_instance" "web" {
   instance_type = "t2.medium"
   count         = "${var.num_webs}"
 
-  vpc_security_group_ids = ["${aws_security_group.instance.id}"]
-
-  key_name = "${aws_key_pair.training.id}"
+  vpc_security_group_ids = ["${aws_security_group.web.id}"]
 
   tags {
     "Name"       = "${var.identity} web ${count.index+1}/${var.num_webs}"
     "Identity"   = "${var.identity}"
     "Created-by" = "Terraform"
-  }
-
-  connection {
-    user        = "ubuntu"
-    private_key = "${file("~/.ssh/id_rsa")}"
-  }
-
-  provisioner "file" {
-    source      = "assets"
-    destination = "/tmp/"
-  }
-
-  provisioner "remote-exec" {
-    inline = [
-      "sudo sh /tmp/assets/setup-web.sh",
-    ]
   }
 }
 
