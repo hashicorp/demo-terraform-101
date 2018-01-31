@@ -22,10 +22,9 @@ resource "aws_instance" "web" {
   key_name = "${aws_key_pair.training.id}"
 
   tags {
-    "Name"     = "web ${count.index+1}/${var.num_webs}"
-    "Identity" = "${var.identity}"
-    "Foo"      = "bar"
-    "Zip"      = "zap"
+    "Name"       = "web ${count.index+1}/${var.num_webs}"
+    "Identity"   = "${var.identity}"
+    "Created by" = "Terraform"
   }
 
   connection {
