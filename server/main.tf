@@ -39,7 +39,7 @@ resource "aws_instance" "web" {
 
   provisioner "remote-exec" {
     inline = [
-      "sudo sh /tmp/assets/setup-web.sh"
+      "sudo sh /tmp/assets/setup-web.sh",
     ]
   }
 }
