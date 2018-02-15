@@ -1,0 +1,6 @@
+access_key=""
+secret_key=""
+security_group_id=""
+identity="training-salmon"
+ami="ami-e70db29f"
+region="us-west-2"
