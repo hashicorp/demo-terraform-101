@@ -1,17 +1,4 @@
 
-variable "access_key" {
-  description = "The AWS access key used to provision resources"
-}
-
-variable "secret_key" {
-  description = "The AWS secret key used to provision resources"
-}
-
-variable "region" {
-  description = "The AWS region in which to provision resources"
-  default     = "us-west-2"
-}
-
 variable "identity" {
   description = "A unique name for your resources"
 }
@@ -26,14 +13,12 @@ variable "ingress_cidr" {
   description = "IP block from which connections to this instance will be made"
 }
 
-variable "public_key_path" {
-  description = "Path on disk to the public key used to connect to this instance"
-  default     = "~/.ssh/id_rsa.pub"
+variable "public_key" {
+  description = "Contents of the public key used to connect to this instance"
 }
 
-variable "private_key_path" {
-  description = "Path on disk to the private key used to connect to this instance"
-  default     = "~/.ssh/id_rsa"
+variable "private_key" {
+  description = "Contents of the private key used to connect to this instance"
 }
 
 variable "num_webs" {

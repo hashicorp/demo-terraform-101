@@ -1,4 +1,3 @@
-
 variable "ami" {
   description = "Base machine image for running this server"
 }
@@ -16,11 +15,10 @@ variable "ingress_cidr" {
   description = "IP address block from which connections to this instance will be made"
 }
 
-variable "public_key_path" {
-  description = "Path on disk to the public key used to connect to this instance"
+variable "public_key" {
+  description = "Contents of the public key used to connect to this instance"
 }
 
-variable "private_key_path" {
-  description = "Path on disk to the private key used to connect to this instance"
+variable "private_key" {
+  description = "Contents of the private key used to connect to this instance"
 }
-

@@ -1,6 +1,6 @@
 resource "aws_key_pair" "default" {
   key_name   = "${var.identity}-key"
-  public_key = "${file("${var.public_key_path}")}"
+  public_key = "${var.public_key}"
 }
 
 resource "aws_security_group" "default" {
@@ -50,7 +50,7 @@ resource "aws_instance" "web" {
 
   connection {
     user        = "ubuntu"
-    private_key = "${file("${var.private_key_path}")}"
+    private_key = "${var.private_key}"
   }
 
   provisioner "file" {
