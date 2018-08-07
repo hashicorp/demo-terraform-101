@@ -8,7 +8,7 @@ variable "identity" {}
 
 resource "aws_key_pair" "training" {
   key_name   = "${var.identity}-key"
-  public_key = "${file("~/.ssh/id_rsa.pub")}"
+  public_key = "${file("/home/discover2/.ssh/id_rsa.pub")}"
 }
 
 resource "aws_instance" "web" {
@@ -29,7 +29,7 @@ resource "aws_instance" "web" {
 
   connection {
     user        = "ubuntu"
-    private_key = "${file("~/.ssh/id_rsa")}"
+    private_key = "${file("/home/discover2/.ssh/id_rsa")}"
   }
 
   provisioner "file" {
