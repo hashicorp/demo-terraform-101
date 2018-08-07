@@ -36,7 +36,7 @@ module "server" {
   vpc_security_group_id = "${var.vpc_security_group_id}"
   identity              = "${var.identity}"
   public_key            = "${var.public_key}"
-  private_key            = "${var.private_key}"
+  private_key           = "${var.private_key}"
 }
 
 output "public_ip" {
