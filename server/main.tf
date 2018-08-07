@@ -26,22 +26,6 @@ resource "aws_instance" "web" {
     "Identity"   = "${var.identity}"
     "Created by" = "Terraform"
   }
-
-  connection {
-    user        = "ubuntu"
-    private_key = "${file("~/.ssh/id_rsa")}"
-  }
-
-  provisioner "file" {
-    source      = "assets"
-    destination = "/tmp/"
-  }
-
-  provisioner "remote-exec" {
-    inline = [
-      "sudo sh /tmp/assets/setup-web.sh",
-    ]
-  }
 }
 
 output "public_ip" {
