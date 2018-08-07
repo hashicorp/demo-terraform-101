@@ -4,6 +4,8 @@ terraform {
 
 variable "access_key" {}
 variable "secret_key" {}
+variable "public_key" {}
+variable "private_key" {}
 
 variable "region" {
   default = "us-east-1"
@@ -33,6 +35,8 @@ module "server" {
   subnet_id             = "${var.subnet_id}"
   vpc_security_group_id = "${var.vpc_security_group_id}"
   identity              = "${var.identity}"
+  public_key            = "${var.public_key}"
+  private_key            = "${var.private_key}"
 }
 
 output "public_ip" {
