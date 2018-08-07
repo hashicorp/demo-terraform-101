@@ -6,8 +6,8 @@ variable "subnet_id" {}
 variable "vpc_security_group_id" {}
 variable "identity" {}
 variable "public_key" {}
-variable "private key" {}
-#test
+variable "private_key" {}
+
 resource "aws_key_pair" "training" {
   key_name   = "${var.identity}-key"
   public_key = "${var.public_key}"
