@@ -2,7 +2,7 @@
 variable "identity" {
   description = "A unique name for your resources"
 }
-
+#
 variable "ami" {
   description = "The Amazon Machine Image for new instances."
   default     = "ami-c62eaabe"
