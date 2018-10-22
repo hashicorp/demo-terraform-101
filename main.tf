@@ -3,6 +3,7 @@ terraform {
 }
 
 provider "aws" {
+  # Line modified to 1.20.0 or greater
   version = ">= 1.20.0"
 }
 
