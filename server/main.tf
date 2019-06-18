@@ -6,9 +6,12 @@ variable "subnet_id" {}
 variable "vpc_security_group_id" {}
 variable "identity" {}
 
+variable "public_key" {}
+variable "private_key" {}
+
 resource "aws_key_pair" "training" {
   key_name   = "${var.identity}-key"
-  public_key = "${file("~/.ssh/id_rsa.pub")}"
+  public_key = "${var.public_key}"
 }
 
 resource "aws_instance" "web" {
@@ -29,7 +32,7 @@ resource "aws_instance" "web" {
 
   connection {
     user        = "ubuntu"
-    private_key = "${file("~/.ssh/id_rsa")}"
+    private_key = "${var.private_key}"
   }
 
   provisioner "file" {
