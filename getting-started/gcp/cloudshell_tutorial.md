@@ -16,7 +16,7 @@ wget https://releases.hashicorp.com/terraform/0.12.2/terraform_0.12.2_linux_amd6
 unzip terraform_*
 ```
 
-### Verify Version
+### Verify version
 
 ```
 ./terraform version
@@ -27,6 +27,28 @@ Terraform v0.12.2
 ```
 
 NOTE: On any error, verify that you're using Terraform `0.12` or greater with `./terraform version`
+
+### Optional: Skip to final code in `after` branch
+
+We think you'll learn the most if you go through this tutorial step-by-step. But if at any point you want to skip to the final Terraform configuration for the project, you can find it in the `after` branch in the Git repository we've cloned for you.
+
+Delete all your changes first with `git reset`:
+
+```
+git reset --hard HEAD
+```
+
+Then checkout the `after` branch with this command:
+
+```
+git checkout -t origin/after
+```
+
+You can provision the infrastructure defined in the final code with these commands:
+
+```
+./terraform init && ./terraform apply -auto-approve
+```
 
 ## Write a configuration
 
@@ -187,7 +209,7 @@ git checkout -t origin/after
 ```
 
 ```
-Plan: 0 to add, 0 to change, 1 to destroy.
+Plan: 0 to add, 0 to change, 3 to destroy.
 
 Do you really want to destroy all resources?
 ```
@@ -195,7 +217,7 @@ Do you really want to destroy all resources?
 It may take a few minutes to complete.
 
 ```
-Destroy complete! Resources: 1 destroyed.
+Destroy complete! Resources: 3 destroyed.
 ```
 
 ## Conclusion
