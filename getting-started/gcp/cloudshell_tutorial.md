@@ -1,4 +1,4 @@
-# First Tutorial
+# Learn HashiCorp Terraform on GCP
 
 ## Install Terraform
 
