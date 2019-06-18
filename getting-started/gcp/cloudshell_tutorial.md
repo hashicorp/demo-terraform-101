@@ -169,6 +169,16 @@ output "website_url" {
 }
 ```
 
+### See final code
+
+```
+git reset --hard HEAD
+```
+
+
+```
+git checkout -t origin/after
+```
 
 ## Destroy
 
