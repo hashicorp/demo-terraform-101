@@ -4,7 +4,11 @@
 
 ### Download
 
+Terraform v0.12 is installed in this disk image. If you need to download Terraform, it's available at this link:
+
 [Download Terraform](https://www.terraform.io/downloads.html)
+
+To download, use a command line tool like `wget` on Linux or Mac:
 
 ```
 wget https://releases.hashicorp.com/terraform/0.12.2/terraform_0.12.2_linux_amd64.zip
@@ -12,19 +16,27 @@ wget https://releases.hashicorp.com/terraform/0.12.2/terraform_0.12.2_linux_amd6
 
 ### Unzip
 
+Unzip the Terraform executable:
+
 ```
 unzip terraform_*
 ```
 
 ### Verify version
 
+Verify that you are running Terraform 0.12 or greater.
+
 ```
-./terraform version
+terraform version
 ```
+
+You should see `v0.12.2` or greater in the output.
 
 ```
 Terraform v0.12.2
 ```
+
+If you are using a locally downloaded version if Terraform in the current directory, use `./terraform` (leading dot slash) to run the command.
 
 NOTE: On any error, verify that you're using Terraform `0.12` or greater with `./terraform version`
 
@@ -79,19 +91,19 @@ resource "google_compute_network" "vpc_network" {
 ### Init
 
 ```
-./terraform init
+terraform init
 ```
 
 ### Plan
 
 ```
-./terraform plan
+terraform plan
 ```
 
 ### Apply
 
 ```
-./terraform apply
+terraform apply
 ```
 
 You should see:
@@ -129,7 +141,7 @@ resource "google_compute_firewall" "default" {
 ```
 
 ```
-./terraform apply
+terraform apply
 ```
 
 ### Define a compute instance
@@ -162,7 +174,7 @@ resource "google_compute_instance" "vm_instance" {
 ### Show state
 
 ```
-./terraform show
+terraform show
 ```
 
 Scroll up to `network_interface` and `access_config` and `nat_ip`. You'll find an IP address something like `0.0.0.0`.
@@ -205,7 +217,7 @@ git checkout -t origin/after
 ## Destroy
 
 ```
-./terraform destroy
+terraform destroy
 ```
 
 ```
