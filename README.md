@@ -2,9 +2,9 @@
 
 Before and after code for a _Terraform Introduction_ class.
 
-## Terraform Enterprise
+## Terraform Cloud
 
-This branch is for use with a student's own AWS credentials and is intended to run on Terraform Enterprise (but can also run locally).
+This branch is for use with a student's own AWS credentials and is intended to run on Terraform Cloud (but can also run locally).
 
 Major changes:
 
