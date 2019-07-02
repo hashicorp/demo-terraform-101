@@ -51,7 +51,7 @@ resource "aws_instance" "web" {
     type        = "ssh"
     user        = "ubuntu"
     private_key = var.private_key
-    host        = aws_instance.web.*.public_ip
+    host        = self.public_ip
   }
 
   provisioner "file" {
