@@ -1,4 +1,3 @@
-
 variable "identity" {
   description = "A unique name for your resources"
 }
@@ -25,3 +24,4 @@ variable "num_webs" {
   description = "The number of servers to run"
   default     = "1"
 }
+
