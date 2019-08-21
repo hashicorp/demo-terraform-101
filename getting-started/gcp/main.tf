@@ -60,9 +60,9 @@ resource "google_compute_instance" "vm_instance" {
   }
 
   network_interface {
-# Replace this line:
-#   network = google_compute_network.vpc_network.name
-# With this these two:
+    # Replace this line:
+    #   network = google_compute_network.vpc_network.name
+    # With this these two:
     network    = module.network.network_name
     subnetwork = module.network.subnets_names[0]
     access_config {
