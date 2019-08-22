@@ -24,14 +24,14 @@ variable "cidrs" {
 }
 
 variable "environment" {
-  type = string
+  type    = string
   default = "dev"
 }
 
 variable "machine_types" {
   type = "map"
   default = {
-    "dev" = "f1-micro"
+    "dev"  = "f1-micro"
     "test" = "n1-highcpu-32"
     "prod" = "n1-highcpu-32"
   }
