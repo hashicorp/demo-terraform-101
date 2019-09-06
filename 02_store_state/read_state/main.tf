@@ -3,7 +3,7 @@ terraform {
     organization = "<ORGANIZATION NAME>"
 
     workspaces {
-      name = "terraform_cloud_read_state"
+      name = "lab_2_read_state"
     }
   }
 }
@@ -23,7 +23,7 @@ data "terraform_remote_state" "write_state" {
     organization = "<ORGANIZATION NAME>"
 
     workspaces = {
-      name = "terraform_cloud_write_state"
+      name = "lab_2_write_state"
     }
   }
 }

@@ -4,7 +4,7 @@ terraform {
     organization = "<ORGANIZATION NAME>"
 
     workspaces {
-      name = "terraform_cloud_write_state"
+      name = "lab_2_write_state"
     }
   }
 }
