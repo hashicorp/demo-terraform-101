@@ -2,7 +2,9 @@ terraform {
   required_version = ">= 0.12.0"
 }
 
+#Pinning AWS version
 provider "aws" {
+  version = ">= 2.27.0"
 }
 
 module "server" {
