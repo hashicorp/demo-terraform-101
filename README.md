@@ -16,3 +16,10 @@ Major changes:
     export AWS_ACCESS_KEY_ID="AAAA"
     export AWS_SECRET_ACCESS_KEY="AAAA"
     export AWS_DEFAULT_REGION="us-west-2"
+    
+## Branches
+
+See the `after` branch for the completed code from the class.
+
+See the `after-byoaws` branch for the completed code that can be run on a student's own AWS account (instead of on the instructor-created AWS account).
+
