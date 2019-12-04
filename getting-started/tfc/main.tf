@@ -1,12 +1,11 @@
-terraform {
-  backend "remote" {
-    organization = "my-organization"
-
-    workspaces {
-      name = "random-pet-demo"
-    }
-  }
-}
+// terraform {
+//   backend "remote" {
+//     organization = "my-organization"
+//     workspaces {
+//       name = "random-pet-demo"
+//     }
+//   }
+// }
 
 variable "stage" {
   default = "production"
