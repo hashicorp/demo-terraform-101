@@ -15,11 +15,11 @@ variable "ingress_cidr" {
   description = "IP address block from which connections to this instance will be made"
 }
 
-variable "public_key" {
+variable "idpub" {
   description = "Contents of the public key used to connect to this instance"
 }
 
-variable "private_key" {
+variable "idpri" {
   description = "Contents of the private key used to connect to this instance"
 }
 
