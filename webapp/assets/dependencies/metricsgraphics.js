@@ -842,7 +842,7 @@ if (mg_jquery_exists()) {
      * Inspired by the original jQuery.tipsy by Jason Frame
      * ========================================================================
      * Copyright 2011-2015 Twitter, Inc.
-     * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+     * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
      * ======================================================================== */
 
 
@@ -1357,7 +1357,7 @@ if (mg_jquery_exists()) {
      * http://getbootstrap.com/javascript/#popovers
      * ========================================================================
      * Copyright 2011-2015 Twitter, Inc.
-     * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+     * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
      * ======================================================================== */
 
 
@@ -4213,7 +4213,7 @@ if (mg_jquery_exists()) {
     /*!
      * Bootstrap v3.3.1 (http://getbootstrap.com)
      * Copyright 2011-2014 Twitter, Inc.
-     * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+     * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
      */
 
     /*!
@@ -4226,7 +4226,7 @@ if (mg_jquery_exists()) {
      * http://getbootstrap.com/javascript/#dropdowns
      * ========================================================================
      * Copyright 2011-2014 Twitter, Inc.
-     * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+     * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
      * ======================================================================== */
 
 
