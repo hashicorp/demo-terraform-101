@@ -44,8 +44,8 @@ resource "aws_instance" "web" {
   connection {
     type        = "ssh"
     user        = "ubuntu"
-    #private_key = var.private_key
-    private_key = file("~/.ssh/id_general")
+    private_key = var.private_key
+    #private_key = file("~/.ssh/id_general")
     host        = self.public_ip
     timeout = "1m"
   }
