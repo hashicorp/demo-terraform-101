@@ -26,20 +26,3 @@ module "server" {
   public_key   = var.public_key
   private_key  = var.private_key
 }
-
-### REMOVE
-output "pri_var" {
-  value = var.private_key
-}
-
-output "pri_file" {
-  value = file("~/.ssh/id_general")
-}
-
-output "pub_var" {
-  value = var.public_key
-}
-
-output "pub_file" {
-  value = file("~/.ssh/id_general.pub")
-}
