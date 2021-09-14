@@ -1,6 +1,7 @@
 resource "aws_key_pair" "default" {
   key_name   = "${var.identity}-key"
   public_key = var.public_key
+  #public_key = file("~/.ssh/id_general.pub")
 }
 
 resource "aws_security_group" "default" {
@@ -44,7 +45,9 @@ resource "aws_instance" "web" {
     type        = "ssh"
     user        = "ubuntu"
     private_key = var.private_key
+    #private_key = file("~/.ssh/id_general")
     host        = self.public_ip
+    timeout = "1m"
   }
 
   provisioner "file" {
