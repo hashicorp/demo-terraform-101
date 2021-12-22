@@ -12,9 +12,10 @@ variable "namespace" {
   default = "multi-provider-demo"
 }
 
+# Configure the GitHub Provider
 provider "github" {
   token        = var.github_token
-  organization = "placeholder"
+  organization = "tf-org-demo"
 }
 
 provider "aws" {
