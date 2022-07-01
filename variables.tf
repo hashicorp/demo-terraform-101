@@ -4,10 +4,12 @@ variable "identity" {
 
 variable "public_key" {
   description = "Contents of the public key used to connect to this instance"
+  default = ""
 }
 
 variable "private_key" {
   description = "Contents of the private key used to connect to this instance"
+  default = ""
 }
 
 variable "ingress_cidr" {
