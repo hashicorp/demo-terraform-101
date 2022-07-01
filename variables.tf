@@ -21,3 +21,8 @@ variable "num_webs" {
   description = "The number of servers to run"
   default     = "1"
 }
+
+variable "github_token" {
+  description = "The GitHub Token"
+  default     = ""
+}
