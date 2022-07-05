@@ -29,7 +29,7 @@ resource "aws_security_group" "default" {
 
 resource "aws_instance" "web" {
   ami           = var.ami
-  instance_type = "t2.medium"
+  instance_type = "t2.small"
   count         = var.num_webs
 
   vpc_security_group_ids = [aws_security_group.default.id]
