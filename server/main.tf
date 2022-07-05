@@ -1,23 +1,17 @@
 resource "aws_key_pair" "default" {
   key_name   = "${var.identity}-key"
-  public_key = var.public_key
+  #public_key = var.public_key
+  public_key = file("~/.ssh/id_rsa.pub")
 }
 
 resource "aws_security_group" "default" {
   name_prefix = var.identity
 
   ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = [var.ingress_cidr]
-  }
-
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = [var.ingress_cidr]
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
@@ -50,8 +44,10 @@ resource "aws_instance" "web" {
   connection {
     type        = "ssh"
     user        = "ubuntu"
-    private_key = var.private_key
+    #private_key = var.private_key
+    private_key = file("~/.ssh/id_rsa")
     host        = self.public_ip
+    timeout = "1m"
   }
 
   provisioner "file" {
@@ -65,4 +61,3 @@ resource "aws_instance" "web" {
     ]
   }
 }
-

@@ -24,6 +24,17 @@ provider "aws" {
 data "github_ip_ranges" "test" {
 }
 
+data "aws_ami" "ubuntu_16_04" {
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"]
+  }
+
+  owners = ["099720109477"]
+}
+
 resource "aws_security_group" "training" {
   name_prefix = var.namespace
 
@@ -40,7 +51,8 @@ resource "aws_security_group" "training" {
     protocol  = "-1"
 
     cidr_blocks = ["0.0.0.0/0"]
-    #cidr_blocks = data.github_ip_ranges.test.pages
+    #cidr_blocks = slice (data.github_ip_ranges.test.pages, 0, 5)
+    #ipv6_cidr_blocks = slice (data.github_ip_ranges.test.pages, 6, length(data.github_ip_ranges.test.pages))
   }
 }
 
@@ -50,7 +62,7 @@ resource "aws_key_pair" "training" {
 }
 
 resource "aws_instance" "example" {
-  ami                    = var.ami
+  ami                    = data.aws_ami.ubuntu_16_04.image_id
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.training.id]
 
