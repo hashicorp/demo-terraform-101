@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(['d3'], factory);
