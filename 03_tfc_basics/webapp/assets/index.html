@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Live Visitor Feed</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="dependencies/metricsgraphics.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Visits</h1>
+            <div id="chart"></div>
+            <p id="text" class="text"></p>
+            <table id="visits">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+        </div>
+        <script
+			  src="dependencies/jquery-3.2.1.min.js"
+			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			  crossorigin="anonymous"></script>
+        <script src="dependencies/d3.v4.min.js"></script>
+        <script src="dependencies/metricsgraphics.min.js"></script>
+        <script src="dependencies/moment.min.js"></script>
+        <script src="dependencies/socket.io.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>

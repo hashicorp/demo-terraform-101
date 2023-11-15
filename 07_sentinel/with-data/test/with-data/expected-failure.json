@@ -1,0 +1,30 @@
+{
+  "global": {
+    "instance_type": "t2.nano",
+    "ami": {
+      "id": "ami-11111111"
+    }
+  },
+  "mock": {
+    "tfplan": {
+      "random_pet": {
+        "server": {
+          "0": {
+            "applied": {
+              "id": "deciding-pegasus",
+              "length": "2",
+              "separator": "-"
+            },
+            "diff": {}
+          }
+        }
+      }
+    }
+  },
+  "test": {
+    "main": false,
+    "instance_type_is_medium": false,
+    "ami_is_present": false,
+    "has_id": false
+  }
+}
