@@ -1,3 +1,7 @@
+/**
+ * Copyright IBM Corp. 2017, 2026
+ */
+
 var data = [{ date: new Date(), value: 1 }];
 var ids = {};
 

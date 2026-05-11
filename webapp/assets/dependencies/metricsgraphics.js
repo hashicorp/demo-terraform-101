@@ -1,3 +1,7 @@
+/**
+ * Copyright IBM Corp. 2017, 2026
+ */
+
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(['d3'], factory);
